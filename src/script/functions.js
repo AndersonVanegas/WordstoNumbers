@@ -70,7 +70,7 @@ function checkUnit(){
     let bool;
     for (i of teenFamily){
         regteen = new RegExp(`^${i.name}`);
-        if (regteen.test(message)){
+        if (regteen.test(message) && (resultado === 0 || (resultado % 100 === 0))){
             message = message.replace(regteen,'');
              resultado += i.num;
             break;
