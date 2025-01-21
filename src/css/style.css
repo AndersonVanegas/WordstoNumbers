@@ -1,0 +1,57 @@
+body {
+    background: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+form {
+    background: linear-gradient(rgba(255, 255, 255, 0.24),rgba(255, 255, 255, 0));
+    backdrop-filter: blur(5px);
+    border-color: black;
+    border: 1px solid black;
+}
+.tittle {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 8px rgb(0, 0, 0);
+}
+#entrada {
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.45);
+    color: rgb(1, 7, 73);
+    text-shadow: 0 0 5px white;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.boton {
+    border : 1px solid rgba(255, 255, 255, 0.528);
+    border-radius: 10px;
+    width: 150px;
+    height: 50px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(1, 7, 76, 0.67);
+    box-shadow: 0 0 0 white;
+    transition: 0.1s;
+}
+.boton:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(1, 7, 76);
+    box-shadow: 0 0 20px white;
+    transform: scale(1.2,1.2);
+}
+.alert-primary {
+    margin: 0 auto;
+}
+#salida {
+    color: rgb(231, 247, 255);
+    text-shadow: 0 0 10px black;
+    font-size: 3rem;
+    font-weight: bold;
+}
