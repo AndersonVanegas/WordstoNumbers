@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/css/boostrap.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="src/script/jquery.js"></script>
+</head>
+<body>
+    <div class="container">
+            <form class="text-center w-50 text-dark rounded-5 p-5 w-100" >
+                    <h1 class="mb-4 tittle">From Text to Number</h1>
+                    <div class="mb-4">
+                      <label for="exampleInputEmail1" class="form-label fs-4 text-white">Type your number</label>
+                      <input id="entrada" type="text" class="form-control text-center w-75 w-md-100 fs-4">
+                      <div class="form-text text-white fs-4">Example: Three thousand forty seven</div>
+                    </div>
+                    <div class="alert alert-primary w-75 mb-4 d-none fs-5" role="alert">
+                    <b> A simple warning alert—check it out!</b>
+                      </div>
+                    <button type="button" class="boton fs-5" id="bton">Transform</button>
+
+                    <div class="mt-4 d-none" id="salida">Resultado</div>
+            </form>
+    </div>
+    
+    <script src="src/script/functions.js"></script>
+    <script src="src/script/script.js"></script>
+</body>
+</html>
