@@ -170,6 +170,13 @@ function checkString(){
             }else{
                 list.push(resultado);
             }
+        }else if(checkThousand()){
+            list.push(resultado);
+            resultado = 0
+            checkToHundred();
+            list.push(resultado);
+        }else{
+            list.push(resultado);
         }
     }else if (checkMillion()){
         list.push(resultado);
