@@ -39,6 +39,7 @@ const unidad = [
 const hundred = {name: 'hundred', num:100};
 const thousand = {name: 'thousand', num: 1000};
 const million = {name: 'million', num: 1000000};
+const billion = {name: 'billion', num: 1000000000};
 let resultado = 0;
 let list = [];
 let message;
@@ -109,6 +110,17 @@ function checkThousand(){
     }
     return checked;
 }
+function checkBillion(){
+    let reg;
+    let checked = false;
+    reg = new RegExp(`^${billion.name}`);
+    if(reg.test(message)) {
+        resultado *= billion.num;
+        message = message.replace(reg,'');
+        checked = true;
+    }
+    return checked;
+}
 function checkMillion(){
     let reg;
     let checked = false;
@@ -140,7 +152,26 @@ function checkToHundred(){
 }
 function checkString(){
     checkToHundred();
-    if (checkMillion()){
+    if(checkBillion()){
+        list.push(resultado);
+        resultado = 0;
+        checkToHundred();
+        deleteFirstSpace();
+        if (checkMillion()){
+            list.push(resultado);
+            resultado = 0;
+            checkToHundred();
+            deleteFirstSpace();
+            if (checkThousand()){
+                list.push(resultado);
+                resultado = 0
+                checkToHundred();
+                list.push(resultado);
+            }else{
+                list.push(resultado);
+            }
+        }
+    }else if (checkMillion()){
         list.push(resultado);
         resultado = 0;
         checkToHundred();
