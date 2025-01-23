@@ -1,10 +1,4 @@
 const decena = [
-    {name: 'ten', num: 10},//
-    {name: 'eleven', num:11},//
-    {name: 'twelve', num:12},//
-    {name: 'fifteen', num:15},//
-    {name: 'teen', num:10},
-
     {name: 'twenty', num:20},
     {name: 'thirty', num:30},
     {name: 'forty', num:40},
@@ -15,6 +9,9 @@ const decena = [
     {name: 'ninety', num:90},
 ]
 const teenFamily = [
+    {name: 'ten', num: 10},
+    {name: 'eleven', num:11},
+    {name: 'twelve', num:12},
     {name: 'thirteen', num: 13},
     {name: 'fourteen', num: 14},
     {name: 'fifteen', num: 15},
@@ -58,7 +55,7 @@ function checkDecimals(){
         reg = new RegExp(`^${i.name}`);
         if (reg.test(message) && (resultado >= 100 || 0 === resultado)){
             message = message.replace(reg,'');
-            bool = (i.num % 10) == 0 && 'ten' != unidad[0].name ? true : false;
+            bool = (i.num % 10) == 0 ? true : false;
             resultado += i.num;
             break;
         }
@@ -72,12 +69,13 @@ function checkUnit(){
     for (i of teenFamily){
         regteen = new RegExp(`^${i.name}`);
         if (regteen.test(message) && (resultado === 0 || (resultado % 100 === 0))){
+            bool = /^ten/.test(message) ? true : false;
             message = message.replace(regteen,'');
              resultado += i.num;
             break;
         }
     }
-    bool = (resultado === 0) || (resultado % 10 == 0) ? true : false;
+    bool = ((resultado === 0) || (resultado % 10 == 0)) && bool ? true : false;
      if(bool){
         for (i of unidad){
         reg = new RegExp(`^${i.name}`);
@@ -92,7 +90,7 @@ function checkUnit(){
 function checkHundred(){
     let reg;
     reg = new RegExp(`^${hundred.name}`);
-    if(reg.test(message)) {// && resultado < 10
+    if(reg.test(message)) {
         resultado *= hundred.num;
         message = message.replace(reg,'');
     }
