@@ -37,10 +37,10 @@ const hundred = {name: 'hundred', num:100};
 const thousand = {name: 'thousand', num: 1000};
 const million = {name: 'million', num: 1000000};
 const billion = {name: 'billion', num: 1000000000};
-let resultado = 0;
-let list = [];
-let message;
-function deleteFirstSpace(){
+let resultado = 0;//Donde se ejecutaran los operaciones en el transcurso de las funciones
+let list = [];//Donde se almacenara los numeros dependiendo de la cantidad de calculos
+let message;//Esta sera la entrada por parte del usuario
+function deleteFirstSpace(){// Esta funcion se encarga de borrar los primeros espacios y lineas que ponga el usuario
     let arr;
     while(/^\s/.test(message) || /^-/.test(message)){
         arr = message.split('');
@@ -48,34 +48,33 @@ function deleteFirstSpace(){
         message = arr.join('');
     }
 }
-function checkDecimals(){
+function checkDecimals(){//Se encarga de verificar si hay texto del objeto decimals
     let bool = true;
     let reg;
     for (i of decena){
-        reg = new RegExp(`^${i.name}`);
-        if (reg.test(message) && (resultado >= 100 || 0 === resultado)){
-            message = message.replace(reg,'');
-            bool = (i.num % 10) == 0 ? true : false;
-            resultado += i.num;
+        reg = new RegExp(`^${i.name}`);//Esta expresion señala en cada ciclo el name de los objetos
+        if (reg.test(message) && (resultado >= 100 || 0 === resultado)){ //Si el nombre del objeto se encuentra en la variable message y el resultado es 0 o mayor que 99, se ejecuta la instruccion
+            message = message.replace(reg,'');//la palabra encontrada sera borrada de la string message
+            bool = (i.num % 10) == 0 ? true : false;// Si el numero del objeto es divisible entre 10, sera true
+            resultado += i.num; //Se le suma el numero del objeto al resultado
             break;
         }
     }
-    return bool
+    return bool; //Si es true, permitira que la funcion checkUnit se ejecute
 }
-function checkUnit(){ 
+function checkUnit(){ //Se encarga de verificar si hay unidades y familia del 10
     let reg;
     let regteen;
     let bool;
     for (i of teenFamily){
         regteen = new RegExp(`^${i.name}`);
         if (regteen.test(message) && (resultado === 0 || (resultado % 100 === 0))){
-            bool = /^ten/.test(message) ? true : false;
             message = message.replace(regteen,'');
              resultado += i.num;
             break;
         }
     }
-    bool = ((resultado === 0) || (resultado % 10 == 0)) && bool ? true : false;
+    bool = ((resultado === 0) || (resultado % 10 == 0)) && resultado != 10 ? true : false;
      if(bool){
         for (i of unidad){
         reg = new RegExp(`^${i.name}`);
