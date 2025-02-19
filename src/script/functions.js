@@ -5,7 +5,6 @@ function deleteFirstSpace(){// Esta funcion se encarga de borrar los primeros es
         arr[0] = '';
         message = arr.join('');
         console.log(message);
-        // /^(?!.*contraseña)(?=.*\d)(?=.*[^\w\s]).{7,31}$/.test(str)
     }
 }
 function checkDecimals(){//Se encarga de verificar si hay texto del objeto decimals
